@@ -6,6 +6,7 @@ Client requirements:
 - Emulator, at least Android 2.2 Google APIs.
 - Device must be signed in with a Google account.
 
+1. Update the SENDER_ID constant in C2DMReceiver with the C2DM registered e-mail account.
 
 
 #############################
