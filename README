@@ -1,0 +1,29 @@
+#############################
+JayView C2DM Example project
+#############################
+Client requirements:
+- Mobile device, at least Android 2.2.
+- Emulator, at least Android 2.2 Google APIs.
+- Device must be signed in with a Google account.
+
+
+
+#############################
+Sending a message:
+#############################
+Server requirements:
+- Register for C2DM, http://code.google.com/android/c2dm/signup.html
+
+Get server auth token (use the registered C2DM e-mail). Replace: <c2dm-enabled e-mail> and <password>
+curl https://www.google.com/accounts/ClientLogin -d Email=<c2dm-enabled e-mail> -d Passwd=<password> -d accountType=GOOGLE -d source=jayview-c2dm -d service=ac2dm
+
+The response format looks like this:
+SID=...
+LSID=...
+Auth=...
+
+- Copy the characters after "Auth=" into the "<auth token>" part of the next command.
+- The "<phone registration id>" is the id received on the Android client.
+
+Send a message to the Android client. Replace: <auth token>, <phone registration id>, and <your message>
+curl --header "Authorization: GoogleLogin auth=<auth token>" "https://android.apis.google.com/c2dm/send" -d registration_id=<phone registration id> -d "data.msg=<your message>" -d collapse_key=1
