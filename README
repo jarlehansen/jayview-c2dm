@@ -16,7 +16,7 @@ Server requirements:
 - Register for C2DM, http://code.google.com/android/c2dm/signup.html
 
 Steps:
-#############################
+-----------------------------
 1. Get server auth token (use the registered C2DM e-mail).
 Replace: <c2dm-enabled e-mail> and <password>
 
