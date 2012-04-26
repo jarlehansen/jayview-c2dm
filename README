@@ -23,9 +23,11 @@ Replace: <c2dm-enabled e-mail> and <password>
 COMMAND:
 curl https://www.google.com/accounts/ClientLogin -d Email=<c2dm-enabled e-mail> -d Passwd=<password> -d accountType=GOOGLE -d source=jayview-c2dm -d service=ac2dm
 
+curl -d "accountType=HOSTED_OR_GOOGLE&Email=<c2dm-enabled e-mail>&Passwd=<password>&service=ac2dm" https://www.google.com/accounts/ClientLogin | grep Auth
+
+
+
 The response format looks like this:
-SID=...
-LSID=...
 Auth=...
 
 - Copy the characters after "Auth=" into the "<auth token>" part of the next command.
